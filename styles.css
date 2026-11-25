@@ -176,6 +176,12 @@ h2 {
   text-decoration: none;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .button:hover {
   background: #1946b9;
 }
