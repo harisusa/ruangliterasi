@@ -14,11 +14,109 @@
         <a class="button" href="index.html">Kembali ke beranda</a>
       </div>
     </header>
+    <nav class="teacher-nav" aria-label="Navigasi guru">
+      <div class="container teacher-nav__inner">
+        <a class="teacher-nav__identity" href="home-guru.html" aria-label="Ruang Literasi, Home Guru">
+          <svg
+            class="teacher-nav__logo"
+            viewBox="0 0 40 40"
+            aria-hidden="true"
+          >
+            <path
+              d="M20 11c-4.2-3-9-3.1-14-1v20c5-2.1 9.8-2 14 1 4.2-3 9-3.1 14-1V10c-5-2.1-9.8-2-14 1Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+            />
+            <path
+              d="M20 11v20M10 15c2.4-.7 4.6-.5 6.5.5M24 15c1.9-1 4.1-1.2 6.5-.5M10 21c2.4-.7 4.6-.5 6.5.5M24 21c1.9-1 4.1-1.2 6.5-.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span class="teacher-nav__brand">Ruang Literasi</span>
+          <span class="teacher-nav__badge">Ruang Guru</span>
+        </a>
+
+        <div class="teacher-nav__menu" id="teacher-nav-menu">
+          <ul class="teacher-nav__links">
+            <li><a class="teacher-nav__link is-active" href="home-guru.html" aria-current="page">Home Guru</a></li>
+            <li><a class="teacher-nav__link" href="hlt-1.html">HLT-1</a></li>
+            <li><a class="teacher-nav__link" href="hlt-2.html">HLT-2</a></li>
+            <li><a class="teacher-nav__link" href="hlt-3.html">HLT-3</a></li>
+            <li><a class="teacher-nav__link" href="hlt-4.html">HLT-4</a></li>
+            <li><a class="teacher-nav__link" href="asesmen.html">Asesmen</a></li>
+          </ul>
+          <a class="teacher-nav__student-link" href="home-siswa.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8a7 7 0 0 1 14 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" />
+            </svg>
+            Mode Siswa
+          </a>
+        </div>
+
+        <button
+          class="teacher-nav__toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+          aria-controls="teacher-nav-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
     <main id="konten" class="content-section">
       <div class="container">
         <h1>Home Guru</h1>
         <p>Selamat datang di Ruang Literasi untuk Guru.</p>
       </div>
     </main>
+    <script>
+      const navToggle = document.querySelector(".teacher-nav__toggle");
+      const navMenu = document.querySelector("#teacher-nav-menu");
+
+      function setNavMenuOpen(isOpen) {
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+        );
+        navMenu.classList.toggle("is-open", isOpen);
+      }
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+        setNavMenuOpen(!isOpen);
+      });
+
+      navMenu.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          setNavMenuOpen(false);
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".teacher-nav")) {
+          setNavMenuOpen(false);
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          navToggle.getAttribute("aria-expanded") === "true"
+        ) {
+          setNavMenuOpen(false);
+          navToggle.focus();
+        }
+      });
+    </script>
   </body>
 </html>
