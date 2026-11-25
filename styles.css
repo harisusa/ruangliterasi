@@ -63,6 +63,11 @@ a:focus-visible {
   gap: 1.5rem;
 }
 
+.home-header-content {
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
