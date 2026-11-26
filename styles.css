@@ -131,6 +131,11 @@ a:focus-visible {
   gap: 0.75rem;
 }
 
+.teacher-nav__menu--centered {
+  width: 100%;
+  justify-content: center;
+}
+
 .teacher-nav__links {
   display: flex;
   align-items: center;
