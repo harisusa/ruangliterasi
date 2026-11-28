@@ -354,6 +354,30 @@ h2 {
   color: #526078;
 }
 
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.55fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.about-copy {
+  min-width: 0;
+}
+
+.about-art {
+  width: 100%;
+  margin: 3.25rem 0 0;
+}
+
+.about-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: contain;
+}
+
 .contact-section {
   background: #f7f8fb;
 }
@@ -388,6 +412,16 @@ h2 {
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-art {
+    max-width: 32rem;
+    margin: 0 auto;
   }
 
   .learning-illustration {
